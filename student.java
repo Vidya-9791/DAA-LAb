@@ -1,85 +1,40 @@
-package P2;
-import java.util.*;
-class stk
-{
-	int[] sc;
-	int max,top;
-	public stk(int n) {
-		// TODO Auto-generated constructor stub
-		max=n;
-		sc= new int[n];
-		top = -1;
-	}
+package Programs;
 
-	
-	
-	public void push(int ele)
-	{
-		if(top == max-1)
-			System.out.println("Stack overflow");
-		else
-			sc[++top]=ele;
-	}
-	
-	public int pop()
-	{
-		if(top == -1)
-		{
-			System.out.println("Stack Underflow");
-			return(-1);
-		}
-		
-		else
-			return(sc[top--]);
-	}
-	
-	public void display()
-	{
-		if(top == -1)
-			System.out.println("Stack is Empty");
-		else
-			System.out.println("The elements of the stack are :");
-			for(int i=0;i<max;i++)
-				System.out.println(sc[i]+" ");
-	}
+import java.util.*;
+
+class st
+{
+	String USN, Name, Branch;
+	long Phone;
 }
 
-public class stack {
+public class student 
+{
 	public static void main(String[] args)
 	{
 		Scanner s = new Scanner(System.in);
-		System.out.println("Enter the size of the stack : ");
+		System.out.println("Enter the number of students: ");
 		int n = s.nextInt();
-		stk sk = new stk(n);
-		while(true)
+		
+		st[] stu_arr = new st[n];
+		int i;
+		
+		for (i = 0; i < n; i++)
+			stu_arr[i] = new st();
+		
+		for (i = 0; i < n; i++) 
 		{
-			System.out.println("1.push\n2.pop\n3.dispaly\n4.exit");
-			System.out.println("Enter your choice : ");
-			int nu = s.nextInt();
-			
-			switch(nu)
-			{
-			case 1:
-				System.out.println("Eneter an element");
-				int e = s.nextInt();
-				sk.push(e);
-				break;
-			case 2:
-				int p = sk.pop();
-				if(p!=-1)
-					System.out.println("The element popped is"+p);
-				break;
-			case 3:
-				sk.display();
-				break;
-			case 4:
-				return;
-			default:
-				System.out.println("Invalid Choice!!!");
-			}
-			
+			System.out.println("\nEnter the USN, Name, Branch and Phone No. of student: ");
+			stu_arr[i].USN = s.next();
+			stu_arr[i].Name = s.next();
+			stu_arr[i].Branch = s.next();
+			stu_arr[i].Phone = s.nextLong();
 		}
 		
+		System.out.println("\nThe details of Students are: ");
+		for (i = 0; i < n; i++) 
+		{
+			System.out.println("USN: " + stu_arr[i].USN + "\nNAME: " + stu_arr[i].Name +"\nBRANCH: "+ stu_arr[i].Branch + "\nPHONE NO: "+ stu_arr[i].Phone + "\n");
+		}
 	}
-
 }
